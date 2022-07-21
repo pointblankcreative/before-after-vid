@@ -32,7 +32,7 @@ video {
 }
 
 .container {
-  width: 65%;
+  width: 70%;
   height: 50vh;
   display:block;
   margin:30px auto;
@@ -41,10 +41,11 @@ video {
 
 
 #before-after-slider {
-  width:100%;
+  width: 50%;
   position:relative;
   overflow:hidden;
   border:3px solid white;
+  margin: 0 auto;
 }
 
 #after-image {
