@@ -4,36 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Before and After Test</title>
 
+    <!-- Link to Font Awesome -->
     <script src="https://kit.fontawesome.com/5c1272d9b0.js" crossorigin="anonymous"></script>
+
+
+    <!-- Link to StyleSheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Before &amp; After Video Slider</h1>
-<div class="line"></div>
 
-<div class="container">
+    <h1>Before and After Video Slider</h1>
 
-    <div id="before-after-slider">
-        <div class="vid-cont" id="before-image">
-            <video src="./assets/PaperDougLoop-01.mp4" loop muted autoplay>
-            </video>
-            
-        </div>
+    <div class="container">
+        <div id="before-after-slider">
+            <!-- Video 1 -->
+            <div class="vid-cont" id="before-vid">
+                <video height="180" width="360" id="a" controls>
+                    <!-- <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4"> -->
 
-        <div class="vid-cont" id="after-image">
-            <video src="./assets/Unifor-Writ-Video-6sec-loop-16_9.mp4" loop muted autoplay>
-            </video>
-        </div>
+                            <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4">
+                            </source>
+                            <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
+                            </source>
+                            <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.webm">
+                            </source>
+                </video>
+            </div>
 
-        <div id="resizer"></div>
+            <!-- Video 2 -->
+            <div class="vid-cont" id="after-vid">
+                <video height="180" width="360" id="b">
+                    <!-- <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4"> -->
 
-    </div>
-</div>
+                            <source src="https://pb-site-videos.s3.amazonaws.com/Unifor-Writ-Video-6sec-loop-16_9.mp4">
+                            </source>
+                            <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
+                            </source>
+                            <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.webm">
+                            </source>
+                </video>
+            </div>
+
+            <input type="range" value="0" id="scrub">
+
+            <div id="resizer"></div>            
+
+        </div> <!-- ending div for slider -->
+
+    </div> <!-- ending div for container -->
 
 
-    <script src="script.js"></script>
 
+<!-- Link to Popcorn.js -->
+<script src="https://static.bocoup.com/js/popcorn.min.js"></script>
+<!-- Link to jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script.js"></script>    
 </body>
 </html>
