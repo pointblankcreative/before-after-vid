@@ -4,7 +4,7 @@ const beforeVideo = before.getElementsByTagName('video')[0];
 const resizer = document.getElementById('resizer');
 const after = document.getElementById('after-vid');
 
-// console.log(beforeVideo);
+console.log(beforeVideo);
 let active = false;
 
 document.addEventListener('DOMContentLoaded', function(){
