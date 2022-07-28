@@ -4,18 +4,15 @@ const beforeVideo = before.getElementsByTagName('video')[0];
 const resizer = document.getElementById('resizer');
 const after = document.getElementById('after-vid');
 
-console.log(beforeVideo);
 let active = false;
 
 document.addEventListener('DOMContentLoaded', function(){
   let width = slider.offsetWidth;
-  console.log(width);
   beforeVideo.style.width = width + 'px';
 });
 
 window.addEventListener('resize', function() {
   let width = slider.offsetWidth;
-  console.log(width);
   beforeVideo.style.width = width + 'px';
 });
 
@@ -47,7 +44,6 @@ document.body.addEventListener('mousemove', function(e) {
   // call function to pause
   pauseEvent(e);
 });
-
 
 // calculation for dragging on touch and mobile devices
 resizer.addEventListener('touchstart', function() {
@@ -94,6 +90,8 @@ function pauseEvent(e) {
 }
 
 
+// Video Syncing on load
+
 let videos = {
   a: Popcorn('#a'),
   b: Popcorn('#b'),
@@ -119,13 +117,18 @@ Popcorn.forEach(videos, function(media, type) {
     // once both videos are loaded, sync events
     if (++loadCount == 2 ) {
 
+      // Iterate all events and trigger them on the video B
+      // whenever they occur on A
+
       events.forEach(function(event) {
+
         videos.a.on(event, function() {
           if (event === 'timeupdate') {
             if (!this.media.pause) {
               return;
             }
             videos.b.emit('timeupdate');
+            scrub.val(this.currentTime());
             return;
           }
           if (event === 'seeking') {

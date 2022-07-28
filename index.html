@@ -8,7 +8,10 @@
 
     <!-- Link to Font Awesome -->
     <script src="https://kit.fontawesome.com/5c1272d9b0.js" crossorigin="anonymous"></script>
-
+    <!-- Link to Popcorn.js -->
+    <script src="https://static.bocoup.com/js/popcorn.min.js"></script>
+    <!-- Link to jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Link to StyleSheet -->
     <link rel="stylesheet" href="style.css">
@@ -24,18 +27,19 @@
                 <video height="360" width="720" id="a" controls>
                     <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
                     </source>
-                    <!-- <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
+                    <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
                     </source>
                     <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.webm">
-                    </source> -->
+                    </source>
                 </video>
             </div>
 
             <!-- Video 2 -->
             <div class="vid-cont" id="after-vid">
                 <video height="360" width="720" id="b">
-                    <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4">
-                    </source>
+                    <!-- <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4">
+                    </source> -->
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
                     <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
                     </source>
                     <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.webm">
@@ -44,19 +48,16 @@
             </div>
 
 
-            <input type="range" value="0" id="scrub" hidden>
+            <input type="range" value="0" id="scrub">
 
-            <div id="resizer"></div>            
+            <div id="resizer" type="range"></div>            
 
         </div> <!-- ending div for slider -->
 
     </div> <!-- ending div for video container -->
 
 
-<!-- Link to Popcorn.js -->
-<script src="https://static.bocoup.com/js/popcorn.min.js"></script>
-<!-- Link to jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="script.js"></script>    
 </body>
 </html>
