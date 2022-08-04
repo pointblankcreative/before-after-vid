@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/5c1272d9b0.js" crossorigin="anonymous"></script>
     <!-- Link to Popcorn.js -->
     <script src="https://static.bocoup.com/js/popcorn.min.js"></script>
-    <!-- Link to jquery -->
+    <!-- Link to jquery a dependency of Popcorn.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Link to StyleSheet -->
@@ -24,40 +24,39 @@
         <div id="before-after-slider">
             <!-- Video 1 -->
             <div class="vid-cont" id="before-vid">
-                <video height="360" width="720" id="a" controls>
-                    <!-- <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
-                    </source> -->
+                <video width="1280" id="a" controls controlsList="nofullscreen nodownload" preload="auto">
                     <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4">
                     </source>
-                    <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
-                    </source>
-                    <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.webm">
                     </source>
                 </video>
             </div>
 
             <!-- Video 2 -->
             <div class="vid-cont" id="after-vid">
-                <video height="360" width="720" id="b">
-
-                    <!-- <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"> -->
+                <video width="1280" id="b" preload="auto">
                     <source src="https://pb-site-videos.s3.amazonaws.com/Unifor-Writ-Video-6sec-loop-16_9.mp4">
-                    <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.ogv">
-                    </source>
-                    <source src="https://videos.mozilla.org/serv/webmademovies/popcorntest.webm">
                     </source>
                 </video>
             </div>
 
-
-            <input type="range" value="0" id="scrub">
-
-            <div id="resizer" type="range"></div>            
-
+            
+            <div id="resizer" data-playing="false" role="switch" aria-checked="false">
+                <audio id="c" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3" crossorigin="anonymous" preload="auto"></audio>
+            </div>            
+            
         </div> <!-- ending div for slider -->
+        
+        <!-- Inputs -->
+        <!-- Input for Scrub -->
+        <input type="range" value="0" id="scrub" hidden>
+
+        <!-- Input for Volume -->
+        <input type="range" id="volume" min="0" max="2" value="1" step="0.01" hidden>
+
+        <!-- Input for Speaker  Panner -->
+        <input type="range" id="panner" min="-1" max="1" value="0" step="0.01" hidden>
 
     </div> <!-- ending div for video container -->
-
 
 
 <script src="script.js"></script>    
