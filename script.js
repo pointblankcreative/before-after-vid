@@ -9,10 +9,6 @@ const sliderEvent = new CustomEvent("slid", {
   composed: false,
 });
 
-app.resizerLocation = () => {
-  ((slider.offsetWidth - parseInt(resizer.style.left)) / slider.offsetWidth) * 2 - 1;
-}
-
 // VIDEOS SYNCING ON LOAD + SCRUBBER
 app.syncVideos = function() {
   let videos = {
