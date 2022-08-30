@@ -8,10 +8,10 @@
 
     <!-- Link to Font Awesome -->
     <script src="https://kit.fontawesome.com/5c1272d9b0.js" crossorigin="anonymous"></script>
-    <!-- Link to Popcorn.js -->
-    <script src="https://static.bocoup.com/js/popcorn.min.js"></script>
     <!-- Link to jquery a dependency of Popcorn.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Link to Popcorn.js -->
+    <script src="https://static.bocoup.com/js/popcorn.min.js"></script>
 
     <!-- Link to StyleSheet -->
     <link rel="stylesheet" href="style.css">
@@ -24,16 +24,22 @@
         <div id="before-after-slider">
             <!-- Video 1 -->
             <div class="vid-cont" id="before-vid">
-                <video width="1280" id="a" controls controlsList="nofullscreen nodownload" preload="auto">
+                <video width="1280" id="a" controls controlsList="nofullscreen nodownload" preload="auto" playsinline>
                     <source src="https://pb-site-videos.s3.amazonaws.com/PaperDougLoop-01.mp4"></source>
                 </video>
+                <!-- <img src="https://media.giphy.com/media/KSKvdT1YGCpUIonvSq/giphy.gif" alt=""> -->
+                <!-- <video width="1280" id="a" controls controlsList="nofullscreen nodownload" preload="auto">
+                    <source src="https://media.giphy.com/media/Rng7sDG4dkmyWev2qx/giphy.gif"></source>
+                </video> -->
             </div>
 
             <!-- Video 2 -->
             <div class="vid-cont" id="after-vid">
-                <video width="1280" id="b" preload="auto">
+                <video width="1280" id="b" preload="auto" playsinline>
                     <source src="https://pb-site-videos.s3.amazonaws.com/Unifor-Writ-Video-6sec-loop-16_9.mp4"></source>
                 </video>
+               
+                <!-- <img src="https://media.giphy.com/media/l0amJzVHIAfl7jMDos/giphy.gif" alt=""> -->
             </div>
 
             

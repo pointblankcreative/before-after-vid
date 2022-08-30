@@ -2,6 +2,16 @@ const app = {};
 const resizer = document.getElementById('resizer');
 const slider = document.getElementById('before-after-slider');
 
+// Create instance of audio context to access Web Audio API
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioContext = new AudioContext();
+const audioElement = document.querySelector('audio');
+const track = audioContext.createMediaElementSource(audioElement);
+
+const pannerOptions = { pan: 0 };
+const panner = new StereoPannerNode(audioContext, pannerOptions);
+const gainNode = audioContext.createGain();
+
 const sliderEvent = new CustomEvent("slid", {
   detail: {},
   bubbles: true,
@@ -85,44 +95,6 @@ app.syncVideos = function() {
     requestAnimationFrame(sync);
   }
   sync();
-}
-
-// AUDIO TOGGLE FUNCTIONALITY 
-app.audioToggle = function() {
-  // Create instance of audio context to access Web Audio API
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioContext = new AudioContext();
-  const audioElement = document.querySelector('audio');
-  const track = audioContext.createMediaElementSource(audioElement);
-  const pannerOptions = { pan: 0 };
-  const panner = new StereoPannerNode(audioContext, pannerOptions);
-  const gainNode = audioContext.createGain();
-  
-  // Connect audio to AudioContext API
-  track.connect(audioContext.destination);
-  
-  // Connect audio track to el used to trigger sound
-  resizer.addEventListener('slid', function() {
-    // if (audioContext.state === 'suspended') {
-    //   audioContext.resume();
-    // }
-    // if (this.dataset.playing === 'false') {
-    //   audioElement.play();
-    //   this.dataset.playing = 'true';
-    // } else if (this.dataset.playing === 'true') {
-    //   audioElement.pause();
-    //   this.dataset.playing = 'false';
-    // }
-
-    let resizerValue = (((slider.offsetWidth - parseInt(resizer.style.left)) / slider.offsetWidth) * 2 - 1) * -1;
-    // gainNode.gain.value = resizerValue;
-    panner.pan.value = resizerValue;
-    track.connect(gainNode).connect(panner).connect(audioContext.destination);
-  }, false);
-
-  audioElement.addEventListener('ended', () => {
-      playButton.dataset.playing = 'false';
-  }, false);
 }
 
 // SLIDER FUNCTIONALITY
@@ -218,12 +190,45 @@ app.beforeAndAfterSlider = function() {
   }
 };
 
+// AUDIO TOGGLE FUNCTIONALITY 
+app.audioToggle = function() {
+
+  // Connect audio to AudioContext API
+  track.connect(audioContext.destination);
+  
+  // Connect audio track to el used to trigger sound
+  resizer.addEventListener('slid', function() {
+    // if (audioContext.state === 'suspended') {
+    //   audioContext.resume();
+    // }
+    // if (this.dataset.playing === 'false') {
+    //   audioElement.play();
+    //   this.dataset.playing = 'true';
+    // } else if (this.dataset.playing === 'true') {
+    //   audioElement.pause();
+    //   this.dataset.playing = 'false';
+    // }
+
+    let resizerValue = (((slider.offsetWidth - parseInt(resizer.style.left)) / slider.offsetWidth) * 2 - 1) * -1;
+
+    // gainNode.gain.value = resizerValue;
+    panner.pan.value = resizerValue;
+    track.connect(gainNode).connect(panner).connect(audioContext.destination);
+  }, false);
+
+  audioElement.addEventListener('ended', () => {
+      playButton.dataset.playing = 'false';
+  }, false);
+}
+
+
+
 
 // INITIALIZE APP
 app.init = function() {
   app.syncVideos();
-  app.audioToggle();
   app.beforeAndAfterSlider();
+  app.audioToggle();
 }
 
 app.init();
